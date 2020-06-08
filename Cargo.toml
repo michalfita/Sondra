@@ -1,0 +1,26 @@
+[package]
+name = "sondra"
+version = "0.1.0"
+authors = ["Michał Fita <michal@fita.me>"]
+edition = "2018"
+description = "Tool to clean up a large collection of digital photographies stored on NAS."
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+walkdir = "2"
+clap = { git = "https://github.com/clap-rs/clap" }
+rawloader = "~0.36"
+glob = "~0.3"
+lazy_static = "~1.4"
+serde = { version = "~1.0", features = ["derive", "rc"] }
+serde_json = "~1.0"
+maplit = "1.0.2"
+# ring = "0.16.9"
+# rust-crypto = "0.2.36"
+blake3 = { version = "0.3.3", xfeatures = ["prefer_intrinsics"] }
+indicatif = "~0.14"
+
+[dev-dependencies]
+spectral = "~0.6"
+pretty_assertions = "~0.6"
