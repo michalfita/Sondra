@@ -10,7 +10,7 @@ description = "Tool to clean up a large collection of digital photographies stor
 [dependencies]
 walkdir = "2"
 clap = { git = "https://github.com/clap-rs/clap" }
-rawloader = "~0.36"
+rawloader = "^0.37.0"
 glob = "~0.3"
 lazy_static = "~1.4"
 serde = { version = "~1.0", features = ["derive", "rc"] }
@@ -18,9 +18,10 @@ serde_json = "~1.0"
 maplit = "1.0.2"
 # ring = "0.16.9"
 # rust-crypto = "0.2.36"
-blake3 = { version = "0.3.3", xfeatures = ["prefer_intrinsics"] }
-indicatif = "~0.14"
+blake3 = { version = "^1.0.0", xfeatures = ["prefer_intrinsics"] }
+xxhash-rust = { version = "^0.8.2", features = ["xxh3", "const_xxh3"] }
+indicatif = "^0.16.2"
 
 [dev-dependencies]
 spectral = "~0.6"
-pretty_assertions = "~0.6"
+pretty_assertions = "^1.0.0"

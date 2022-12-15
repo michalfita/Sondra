@@ -72,8 +72,8 @@ fn main() {
 
     let pb = ProgressBar::new_spinner();
     pb.set_style(spinner_style);
-    pb.set_prefix(&format!("[{}/2]", 1));
-    pb.set_message(&format!("Processing files in directory '{}'...", opts.directory));
+    pb.set_prefix(format!("[{}/2]", 1));
+    pb.set_message(format!("Processing files in directory '{}'...", opts.directory));
 
     for entry in WalkDir::new(opts.directory)
             .into_iter()
@@ -94,9 +94,9 @@ fn main() {
         pb.inc(1);
     }
 
-    pb.set_prefix(&format!("[{}/2]", 2));
+    pb.set_prefix(format!("[{}/2]", 2));
     photo_collection.obtain_hashes(|path| {
-        pb.set_message(&format!("Hashing file '{}'...", path.to_str().unwrap()));
+        pb.set_message(format!("Hashing file '{}'...", path.to_str().unwrap()));
         
         let file = File::open(&path).expect("File cannot me opened!");
         let mut buf_reader = BufReader::new(file);
@@ -112,7 +112,7 @@ fn main() {
 
     dump_json(&opts.output, &photo_collection);
 
-    pb.finish_with_message(&format!("Done. {} files found, {} potential duplicates identified in {}",
+    pb.finish_with_message(format!("Done. {} files found, {} potential duplicates identified in {}",
             photo_collection.get_entries_number(),
             photo_collection.get_duplicates_number(),
             HumanDuration(started.elapsed())));
